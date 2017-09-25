@@ -24,7 +24,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SeeTestAutomationWebTest {
   public static final int TIMEOUT_IN_SECONDS = 1200;
-  private static final int ITERATIONS_NUM =100 ;
+  private static final int ITERATIONS_NUM =1 ;
   private WebDriver driver;
   private WebDriverWait wait;
   private String baseUrl;
@@ -94,6 +94,9 @@ public class SeeTestAutomationWebTest {
     driver.get(baseUrl + "/index.html#/login");
     driver.manage().window().maximize();
     tabs = new ArrayList<String> (driver.getWindowHandles());
+    for (int i=0;i<tabs.size();i++){
+      System.out.println("Tab "+i+" : "+tabs.get(i));
+    }
     driver.switchTo().window(tabs.get(1));
     driver.close();
     driver.switchTo().window(tabs.get(0));
